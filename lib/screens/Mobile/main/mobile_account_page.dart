@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_auth_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_profile_page.dart';
-import 'package:flutter/material.dart';
 
 class MobileAccountPage extends StatelessWidget {
   final bool isUserAuthenticated;

@@ -5,7 +5,7 @@ import 'package:duma_suites/screens/Mobile/main/mobile_home_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_blogs_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_explore_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_notifications_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_profile_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_account_page.dart';
 
 // Web version
 import 'package:duma_suites/screens/Web/main/web_home_page.dart';
@@ -32,7 +32,7 @@ class ScreensState extends State<Screens> {
         const MobileExplorePage(),
         const MobileBlogsPage(),
         const MobileNotificationsPage(),
-        // const MobileProfilePage(),
+        const MobileAccountPage(isUserAuthenticated: true,),
       ];
 
   final List<Widget> webPages = [
@@ -77,9 +77,11 @@ class ScreensState extends State<Screens> {
             cursorColor: Colors.teal,
           ),
         ),
-        backgroundColor: Colors.teal, // Adjust the background color if needed
+        // Adjust the background color if needed
+        backgroundColor: Colors.teal,
       ),
-      body: selectedPages[currentIndex], // Use the selected page widget
+      // Use the selected page widget
+      body: selectedPages[currentIndex],
       bottomNavigationBar: BottomNavigation(
         currentIndex: currentIndex,
         onTap: _onTap,
