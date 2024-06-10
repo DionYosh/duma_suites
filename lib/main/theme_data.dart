@@ -45,7 +45,7 @@ final ThemeData themeData = ThemeData(
     titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.teal,
+    backgroundColor: Colors.green,
     selectedItemColor: Colors.white,
     unselectedItemColor: Colors.white,
   ),

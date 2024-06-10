@@ -32,7 +32,7 @@ class ScreensState extends State<Screens> {
         const MobileExplorePage(),
         const MobileBlogsPage(),
         const MobileNotificationsPage(),
-        const MobileProfilePage(),
+        // const MobileProfilePage(),
       ];
 
   final List<Widget> webPages = [

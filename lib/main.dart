@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:duma_suites/main/screens.dart';
 import 'package:duma_suites/main/theme_data.dart';
 // Mobile version
-// import 'package:duma_suites/screens/Mobile/main/mobile_about_page.dart';
-// import 'package:duma_suites/screens/Mobile/main/mobile_contact_page.dart';
-// import 'package:duma_suites/screens/Mobile/main/mobile_events_page.dart';
-// import 'package:duma_suites/screens/Mobile/main/mobile_downloads_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_about_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_contact_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_events_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_downloads_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Duma Suites',
-      // Use the imported theme data
       theme: themeData,
-      // Load main page class here
       home: const MainPage(),
     );
   }
@@ -43,31 +41,51 @@ class MainPageState extends State<MainPage> {
     });
   }
 
+  void navigateTo(BuildContext context, String option) {
+    if (kDebugMode) {
+      print("Navigate to: $option");
+    }
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          switch (option) {
+            case 'About':
+              return const MobileAboutPage();
+            case 'Contact':
+              return const MobileContactPage();
+            case 'Downloads':
+              return const MobileDownloadsPage();
+            case 'Events':
+              return const MobileEventsPage();
+            default:
+              return const Scaffold(
+                body: Center(
+                  child: Text('Page not found'),
+                ),
+              );
+          }
+        },
+      ),
+    );
+  }
+
+  void handleLogout() {
+    if (kDebugMode) {
+      print("Logging out...");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     const userName = 'Dionysius Yosh';
     const userAvatar = 'assets/images/female1280.png';
-
-    void navigateTo(String option) {
-      // Implement your navigation logic based on the option
-      if (kDebugMode) {
-        print("Navigate to: $option");
-      }
-    }
-
-    void handleLogout() {
-      // Implement your logout logic
-      if (kDebugMode) {
-        print("Logging out...");
-      }
-    }
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Duma Suites'),
       ),
       endDrawer: SizedBox(
-        // Adjust the width as needed
         width: MediaQuery.of(context).size.width * 0.5,
         child: Drawer(
           child: ListView(
@@ -99,64 +117,64 @@ class MainPageState extends State<MainPage> {
                 leading: const Icon(Icons.info_outline),
                 title: const Text('About'),
                 onTap: () {
-                  navigateTo('about');
                   Navigator.pop(context);
+                  navigateTo(context, 'About');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.phone),
                 title: const Text('Contact'),
                 onTap: () {
-                  navigateTo('contact');
                   Navigator.pop(context);
+                  navigateTo(context, 'Contact');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.file_download),
                 title: const Text('Downloads'),
                 onTap: () {
-                  navigateTo('downloads');
                   Navigator.pop(context);
+                  navigateTo(context, 'Downloads');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.event),
                 title: const Text('Events'),
                 onTap: () {
-                  navigateTo('events');
                   Navigator.pop(context);
+                  navigateTo(context, 'Events');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.question_answer),
                 title: const Text('FAQ'),
                 onTap: () {
-                  navigateTo('faq');
                   Navigator.pop(context);
+                  navigateTo(context, 'faq');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.library_music_rounded),
                 title: const Text('Music'),
                 onTap: () {
-                  navigateTo('Music');
                   Navigator.pop(context);
+                  navigateTo(context, 'Music');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.computer),
                 title: const Text('Technology'),
                 onTap: () {
-                  navigateTo('team');
                   Navigator.pop(context);
+                  navigateTo(context, 'team');
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Log Out'),
                 onTap: () {
-                  handleLogout();
                   Navigator.pop(context);
+                  handleLogout();
                 },
               ),
             ],
@@ -165,7 +183,7 @@ class MainPageState extends State<MainPage> {
       ),
       body: const Screens(
         token: '',
-      ), // Use the ScreenSizes widget here
+      ),
     );
   }
 }
