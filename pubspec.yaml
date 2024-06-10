@@ -32,10 +32,12 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_secure_storage: ^9.2.2
   cupertino_icons: ^1.0.6
+  rename_app: ^1.2.0
   http: ^1.2.1
   web: ^0.5.1
-  rename_app: ^1.2.0
+
 
 dev_dependencies:
   flutter_test:
