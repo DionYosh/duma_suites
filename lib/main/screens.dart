@@ -32,7 +32,7 @@ class ScreensState extends State<Screens> {
         const MobileExplorePage(),
         const MobileBlogsPage(),
         const MobileNotificationsPage(),
-        const MobileAccountPage(isUserAuthenticated: true,),
+        const MobileAccountPage(isUserAuthenticated: false,),
       ];
 
   final List<Widget> webPages = [
@@ -68,17 +68,17 @@ class ScreensState extends State<Screens> {
           child: const TextField(
             decoration: InputDecoration(
               hintText: 'Search...',
-              hintStyle: TextStyle(color: Colors.teal),
+              hintStyle: TextStyle(color:  Color(0xff04AA6D)),
               border: InputBorder.none,
-              prefixIcon: Icon(Icons.search, color: Colors.teal),
+              prefixIcon: Icon(Icons.search, color:  Color(0xff04AA6D)),
               contentPadding: EdgeInsets.symmetric(vertical: 10),
             ),
-            style: TextStyle(color: Colors.teal),
-            cursorColor: Colors.teal,
+            style: TextStyle(color:  Color(0xff04AA6D)),
+            cursorColor:  Color(0xff04AA6D),
           ),
         ),
         // Adjust the background color if needed
-        backgroundColor: Colors.teal,
+        backgroundColor:  const Color(0xff04AA6D),
       ),
       // Use the selected page widget
       body: selectedPages[currentIndex],

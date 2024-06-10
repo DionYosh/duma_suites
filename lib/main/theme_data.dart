@@ -9,54 +9,54 @@ class CustomTheme {
 
 final ThemeData themeData = ThemeData(
   primarySwatch: Colors.teal,
-  scaffoldBackgroundColor: Colors.teal,
+  scaffoldBackgroundColor: const Color(0xFF00FF7F),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
-        color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
+        color: Color(0xff4B0082), fontSize: 32, fontWeight: FontWeight.bold),
     displayMedium: TextStyle(
-        color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
+        color: Color(0xff4B0082), fontSize: 28, fontWeight: FontWeight.bold),
     displaySmall: TextStyle(
-        color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+        color: Color(0xff4B0082), fontSize: 24, fontWeight: FontWeight.bold),
     headlineMedium: TextStyle(
-        color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        color: Color(0xff4B0082), fontSize: 22, fontWeight: FontWeight.bold),
     headlineSmall: TextStyle(
-        color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+        color: Color(0xff4B0082), fontSize: 20, fontWeight: FontWeight.bold),
     titleLarge: TextStyle(
-        color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+        color: Color(0xff4B0082), fontSize: 18, fontWeight: FontWeight.w600),
     titleMedium: TextStyle(
-        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
+        color: Color(0xff4B0082), fontSize: 16, fontWeight: FontWeight.w600),
     titleSmall: TextStyle(
-        color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600),
+        color: Color(0xff4B0082), fontSize: 14, fontWeight: FontWeight.w600),
     bodyLarge: TextStyle(
-        color: Colors.white, fontSize: 16, fontWeight: FontWeight.normal),
+        color: Color(0xff4B0082), fontSize: 16, fontWeight: FontWeight.normal),
     bodyMedium: TextStyle(
-        color: Colors.white, fontSize: 14, fontWeight: FontWeight.normal),
+        color: Color(0xff4B0082), fontSize: 14, fontWeight: FontWeight.normal),
     bodySmall: TextStyle(
-        color: Colors.white, fontSize: 12, fontWeight: FontWeight.normal),
+        color: Color(0xff4B0082), fontSize: 12, fontWeight: FontWeight.normal),
     labelLarge: TextStyle(
-        color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+        color: Color(0xff4B0082), fontSize: 14, fontWeight: FontWeight.w500),
     labelMedium: TextStyle(
-        color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+        color: Color(0xff4B0082), fontSize: 12, fontWeight: FontWeight.w500),
     labelSmall: TextStyle(
-        color: Colors.white, fontSize: 10, fontWeight: FontWeight.w500),
+        color: Color(0xff4B0082), fontSize: 10, fontWeight: FontWeight.w500),
   ),
   appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.teal,
-    titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+    backgroundColor: Color(0xff04AA6D),
+    titleTextStyle: TextStyle(color: Color(0xff4B0082), fontSize: 20),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: Colors.green,
-    selectedItemColor: Colors.white,
-    unselectedItemColor: Colors.white,
+    backgroundColor: Color(0xff00FA9A),
+    selectedItemColor: Color(0xff4B0082),
+    unselectedItemColor: Color(0xff4B0082),
   ),
   listTileTheme: const ListTileThemeData(
-    iconColor: Colors.white,
-    titleTextStyle: TextStyle(color: Colors.white),
+    iconColor: Color(0xff4B0082),
+    titleTextStyle: TextStyle(color: Color(0xff4B0082)),
     subtitleTextStyle: TextStyle(color: Colors.grey),
   ),
   // Customize the Drawer Theme
   drawerTheme: const DrawerThemeData(
-    backgroundColor: Colors.teal, // Background color of the drawer
+    backgroundColor: Color(0xff04AA6D), // Background color of the drawer
   ),
 );
 
