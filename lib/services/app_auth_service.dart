@@ -1,55 +1,52 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
+import 'package:duma_suites/services/app_base_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthService {
   final String baseUrl = 'https://dumasuites.com/api';
-  final storage = const FlutterSecureStorage();
+  final FlutterSecureStorage storage = const FlutterSecureStorage();
+  final BaseClient client;
 
-  Future<void> signup(String username, String email, String gender,
-      String password, String passwordConfirmation) async {
-    final response = await http.post(
-      Uri.parse('$baseUrl/auth/signup'),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
+  AuthService()
+      : client = BaseClient(
+          baseUrl: 'https://dumasuites.com/api',
+          defaultHeaders: {
+            'Content-Type': 'application/json',
+          },
+        );
+
+  Future<void> signup(String username, String email, String gender, String password, String passwordConfirmation) async {
+    try {
+      final data = await client.post('auth/signup', {
         'username': username,
         'email': email,
         'gender': gender,
         'password': password,
         'password_confirmation': passwordConfirmation,
-      }),
-    );
+      });
 
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
       await storage.write(key: 'token', value: data['token']['token']);
       if (kDebugMode) {
         print('User signed up and token stored.');
       }
-    } else {
-      throw Exception('Failed to sign up');
+    } catch (e) {
+      throw Exception('Failed to sign up: $e');
     }
   }
 
   Future<void> signin(String email, String password) async {
-    final response = await http.post(
-      Uri.parse('$baseUrl/auth/signin'),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
+    try {
+      final data = await client.post('auth/signin', {
         'email': email,
         'password': password,
-      }),
-    );
+      });
 
-    if (response.statusCode == 200) {
-      var data = jsonDecode(response.body);
       await storage.write(key: 'token', value: data['token']);
       if (kDebugMode) {
         print('User signed in and token stored.');
       }
-    } else {
-      throw Exception('Failed to sign in');
+    } catch (e) {
+      throw Exception('Failed to sign in: $e');
     }
   }
 

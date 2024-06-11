@@ -12,85 +12,56 @@ class BaseClient {
     http.Client? client,
   }) : client = client ?? http.Client();
 
-  // GET
   Future<dynamic> get(String api) async {
-    var url = Uri.parse('$baseUrl/$api');
-    // Use a separate method for header construction
-    var headers = buildHeaders();
-    var response = await client.get(url, headers: headers);
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body); // Parse JSON response
-    } else {
-      throw Exception('Error: ${response.statusCode}'); // Throw exception
-    }
+    return await _request('GET', api);
   }
 
-  // POST
   Future<dynamic> post(String api, dynamic object) async {
-    var url = Uri.parse('$baseUrl/$api');
-    var payload = jsonEncode(object); // Encode data as JSON
-    var headers = buildHeaders();
-    // headers['Content-Type'] = 'application/json';
-    var response = await client.post(url, body: payload, headers: headers);
-    if (response.statusCode == 201) {
-      return jsonDecode(response.body); // Parse JSON response (optional)
-    } else {
-      throw Exception('Error: ${response.statusCode}'); // Throw exception
-    }
+    return await _request('POST', api, body: object);
   }
 
-  // PUT
   Future<dynamic> put(String api, dynamic object) async {
-    var url = Uri.parse('$baseUrl/$api');
-    var payload = jsonEncode(object); // Encode data as JSON
-    var headers = buildHeaders(); // Copy default headers
-    var response = await client.put(url, body: payload, headers: headers);
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body); // Parse JSON response (optional)
-    } else {
-      throw Exception('Error: ${response.statusCode}'); // Throw exception
-    }
+    return await _request('PUT', api, body: object);
   }
 
-  // PATCH
   Future<dynamic> patch(String api, dynamic object) async {
-    var url = Uri.parse('$baseUrl/$api');
-    var payload = jsonEncode(object); // Encode data as JSON
-    var headers = buildHeaders(); // Copy default headers
-    var response = await client.patch(url, body: payload, headers: headers);
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body); // Parse JSON response (optional)
-    } else {
-      throw Exception('Error: ${response.statusCode}'); // Throw exception
-    }
+    return await _request('PATCH', api, body: object);
   }
 
-  // DELETE
   Future<dynamic> delete(String api) async {
+    return await _request('DELETE', api);
+  }
+
+  Future<dynamic> _request(String method, String api, {dynamic body}) async {
     var url = Uri.parse('$baseUrl/$api');
-    var headers = buildHeaders(); // Copy default headers
-    var response = await client.delete(url, headers: headers);
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body); // Parse JSON response (optional)
+    var headers = buildHeaders();
+    var payload = body != null ? jsonEncode(body) : null;
+    var response = await _sendRequest(method, url, headers, payload);
+
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return jsonDecode(response.body);
     } else {
-      throw Exception('Error: ${response.statusCode}'); // Throw exception
+      throw Exception('Error ${response.statusCode}: ${response.reasonPhrase}');
     }
   }
 
-  // Helper method to build headers (ensures string keys)
+  Future<http.Response> _sendRequest(String method, Uri url, Map<String, String> headers, String? body) {
+    switch (method) {
+      case 'POST':
+        return client.post(url, headers: headers, body: body);
+      case 'PUT':
+        return client.put(url, headers: headers, body: body);
+      case 'PATCH':
+        return client.patch(url, headers: headers, body: body);
+      case 'DELETE':
+        return client.delete(url, headers: headers);
+      case 'GET':
+      default:
+        return client.get(url, headers: headers);
+    }
+  }
+
   Map<String, String> buildHeaders() {
-    // Copy default headers
-    var headers = Map<String, String>.from(defaultHeaders);
-    // Add any additional custom headers with string keys here (optional)
-    return headers;
+    return Map<String, String>.from(defaultHeaders);
   }
 }
-
-final client = BaseClient(
-  baseUrl: 'https://localhost:5050/api',
-  defaultHeaders: {
-    'Authorization': 'Bearer your_auth_token',
-    'api_key': '4C0S-fBL8ioTsxplZC5fQubpv1AYf6Zi',
-    'Content-Type': 'application/json',
-  },
-);
