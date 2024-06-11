@@ -6,12 +6,9 @@ class MobileContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contact'),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Center(
+      body: Container(
+        padding: const EdgeInsets.all(10.0),
+        child: const Center(
           child: Text('This is the Mobile Contact Page'),
         ),
       ),

@@ -30,7 +30,7 @@ class BaseClient {
     var url = Uri.parse('$baseUrl/$api');
     var payload = jsonEncode(object); // Encode data as JSON
     var headers = buildHeaders();
-    headers['Content-Type'] = 'application/json';
+    // headers['Content-Type'] = 'application/json';
     var response = await client.post(url, body: payload, headers: headers);
     if (response.statusCode == 201) {
       return jsonDecode(response.body); // Parse JSON response (optional)
@@ -44,8 +44,20 @@ class BaseClient {
     var url = Uri.parse('$baseUrl/$api');
     var payload = jsonEncode(object); // Encode data as JSON
     var headers = buildHeaders(); // Copy default headers
-    headers['Content-Type'] = 'application/json';
     var response = await client.put(url, body: payload, headers: headers);
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body); // Parse JSON response (optional)
+    } else {
+      throw Exception('Error: ${response.statusCode}'); // Throw exception
+    }
+  }
+
+  // PATCH
+  Future<dynamic> patch(String api, dynamic object) async {
+    var url = Uri.parse('$baseUrl/$api');
+    var payload = jsonEncode(object); // Encode data as JSON
+    var headers = buildHeaders(); // Copy default headers
+    var response = await client.patch(url, body: payload, headers: headers);
     if (response.statusCode == 200) {
       return jsonDecode(response.body); // Parse JSON response (optional)
     } else {
@@ -79,5 +91,6 @@ final client = BaseClient(
   defaultHeaders: {
     'Authorization': 'Bearer your_auth_token',
     'api_key': '4C0S-fBL8ioTsxplZC5fQubpv1AYf6Zi',
+    'Content-Type': 'application/json',
   },
 );

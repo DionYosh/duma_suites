@@ -8,7 +8,7 @@ class CustomTheme {
 }
 
 final ThemeData themeData = ThemeData(
-  primarySwatch: Colors.teal,
+  primarySwatch: Colors.green,
   scaffoldBackgroundColor: const Color(0xFF00FF7F),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
@@ -41,7 +41,7 @@ final ThemeData themeData = ThemeData(
         color: Color(0xff4B0082), fontSize: 10, fontWeight: FontWeight.w500),
   ),
   appBarTheme: const AppBarTheme(
-    backgroundColor: Color(0xff04AA6D),
+    backgroundColor: Color(0xFF00FF7F),
     titleTextStyle: TextStyle(color: Color(0xff4B0082), fontSize: 20),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -56,7 +56,7 @@ final ThemeData themeData = ThemeData(
   ),
   // Customize the Drawer Theme
   drawerTheme: const DrawerThemeData(
-    backgroundColor: Color(0xff04AA6D), // Background color of the drawer
+    backgroundColor: Color(0xff00FA9A), // Background color of the drawer
   ),
 );
 

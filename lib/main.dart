@@ -7,6 +7,9 @@ import 'package:duma_suites/screens/Mobile/main/mobile_about_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_contact_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_events_page.dart';
 import 'package:duma_suites/screens/Mobile/main/mobile_downloads_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_faq_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_music_page.dart';
+import 'package:duma_suites/screens/Mobile/main/mobile_technology_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +61,12 @@ class MainPageState extends State<MainPage> {
               return const MobileDownloadsPage();
             case 'Events':
               return const MobileEventsPage();
+            case 'Faq':
+              return const MobileFaqPage();
+            case 'Music':
+              return const MobileMusicPage();
+            case 'Technology':
+              return const MobileTechnologyPage();
             default:
               return const Scaffold(
                 body: Center(
@@ -150,7 +159,7 @@ class MainPageState extends State<MainPage> {
                 title: const Text('FAQ'),
                 onTap: () {
                   Navigator.pop(context);
-                  navigateTo(context, 'faq');
+                  navigateTo(context, 'Faq');
                 },
               ),
               ListTile(
@@ -166,7 +175,7 @@ class MainPageState extends State<MainPage> {
                 title: const Text('Technology'),
                 onTap: () {
                   Navigator.pop(context);
-                  navigateTo(context, 'team');
+                  navigateTo(context, 'Technology');
                 },
               ),
               ListTile(

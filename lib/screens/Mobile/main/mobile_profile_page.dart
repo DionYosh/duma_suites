@@ -14,8 +14,7 @@ class MobileProfilePage extends StatelessWidget {
         const SizedBox(height: 20.0),
         _buildListTile(Icons.info, 'Bio', 'Add your bio here'),
         _buildListTile(Icons.link, 'Social Media Links', 'Add your links here'),
-        // ... add remaining ListTile widgets here
-        const SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
       ],
     );
   }

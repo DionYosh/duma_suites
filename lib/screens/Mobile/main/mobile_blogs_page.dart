@@ -85,7 +85,6 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posts'),
         actions: [
           IconButton(
             icon: Icon(_isFormVisible ? Icons.close : Icons.add),

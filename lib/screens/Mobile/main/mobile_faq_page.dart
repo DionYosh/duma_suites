@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MobileAboutPage extends StatelessWidget {
-  const MobileAboutPage({super.key});
+class MobileFaqPage extends StatelessWidget {
+  const MobileFaqPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class MobileAboutPage extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(10.0),
         child: const Center(
-          child: Text('This is the Mobile About Page'),
+          child: Text('This is the Mobile Faq Page'),
         ),
       ),
     );

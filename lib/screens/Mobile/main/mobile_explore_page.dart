@@ -15,32 +15,28 @@ class MobileExplorePage extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Explore'),
-      ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16.0),
-        itemCount: exploreItems.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: const EdgeInsets.all(10.0),
-            child: ListTile(
-              leading:
-                  Icon(Icons.explore, color: Theme.of(context).primaryColor),
-              title: Text(exploreItems[index]),
-              trailing: const Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                // Define the action when an item is tapped
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('You tapped on ${exploreItems[index]}'),
-                  ),
-                );
-              },
-            ),
-          );
-        },
-      ),
-    );
+        body: ListView.builder(
+          padding: const EdgeInsets.all(16.0),
+          itemCount: exploreItems.length,
+          itemBuilder: (context, index) {
+            return Card(
+              margin: const EdgeInsets.all(10.0),
+              child: ListTile(
+                leading:
+                    Icon(Icons.explore, color: Theme.of(context).primaryColor),
+                title: Text(exploreItems[index]),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  // Define the action when an item is tapped
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('You tapped on ${exploreItems[index]}'),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+        ));
   }
 }

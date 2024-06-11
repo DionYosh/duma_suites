@@ -6,13 +6,10 @@ class MobileEventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('About'),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Center(
-          child: Text('This is the Mobile About Page'),
+      body: Container(
+        padding: const EdgeInsets.all(10.0),
+        child: const Center(
+          child: Text('This is the Mobile Events Page'),
         ),
       ),
     );

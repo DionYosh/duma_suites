@@ -8,10 +8,7 @@ class MobileHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: Padding(
+      body: Container(
         padding: const EdgeInsets.all(10.0),
         child: Center(
           child: Text('This is the Mobile Home Page. Token: $token'),
