@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:duma_suites/services/app_auth_service.dart';
 
 class MobileAuthPage extends StatefulWidget {
   const MobileAuthPage({super.key});
@@ -16,33 +15,23 @@ class MobileAuthPageState extends State<MobileAuthPage> {
   final TextEditingController password = TextEditingController();
   final TextEditingController passwordConfirmation = TextEditingController();
 
+  final AuthService authService = AuthService(); // Create an instance of AuthService
+
   Future<void> signUp() async {
-    final response = await http.post(
-      Uri.parse('https://localhost:5050/api/auth/signup'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        'email': email.text,
-        'username': username.text,
-        'gender': gender.text,
-        'password': password.text,
-        'password_confirmation': passwordConfirmation.text,
-      }),
-    );
-
-    if (!mounted) {
-      return; // Check if the widget is still mounted before using context
-    }
-
-    if (response.statusCode == 201) {
-      final responseBody = json.decode(response.body);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(responseBody['message'])),
+    try {
+      await authService.signup(
+        email.text,
+        username.text,
+        gender.text,
+        password.text,
+        passwordConfirmation.text,
       );
-    } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to create user')),
+        const SnackBar(content: Text('User created successfully')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to create user: $e')),
       );
     }
   }
