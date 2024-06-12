@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:duma_suites/services/app_base_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-const String baseUrl = 'https://dumasuites.com/api';
+const String baseUrl = 'http://localhost:5050/api';
 const String apiKey = '4C0S-fBL8ioTsxplZC5fQubpv1AYf6Zi';
 
 class AuthService {
