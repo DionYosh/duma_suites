@@ -13,26 +13,26 @@ class BaseClient {
   }) : client = client ?? http.Client();
 
   Future<dynamic> get(String api) async {
-    return await _request('GET', api);
+    return await baseRequest('GET', api);
   }
 
   Future<dynamic> post(String api, dynamic object) async {
-    return await _request('POST', api, body: object);
+    return await baseRequest('POST', api, body: object);
   }
 
   Future<dynamic> put(String api, dynamic object) async {
-    return await _request('PUT', api, body: object);
+    return await baseRequest('PUT', api, body: object);
   }
 
   Future<dynamic> patch(String api, dynamic object) async {
-    return await _request('PATCH', api, body: object);
+    return await baseRequest('PATCH', api, body: object);
   }
 
   Future<dynamic> delete(String api) async {
-    return await _request('DELETE', api);
+    return await baseRequest('DELETE', api);
   }
 
-  Future<dynamic> _request(String method, String api, {dynamic body}) async {
+  Future<dynamic> baseRequest(String method, String api, {dynamic body}) async {
     var url = Uri.parse('$baseUrl/$api');
     var headers = buildHeaders();
     var payload = body != null ? jsonEncode(body) : null;
