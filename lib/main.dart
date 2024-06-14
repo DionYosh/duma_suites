@@ -1,15 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:duma_suites/main/screens.dart';
-import 'package:duma_suites/main/theme_data.dart';
+import 'package:duma_suites/core/app_platform.dart';
+import 'package:duma_suites/utilities/theme_data.dart';
 // Mobile version
-import 'package:duma_suites/screens/Mobile/main/mobile_about_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_contact_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_events_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_downloads_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_faq_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_music_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_technology_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_about_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_contact_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_events_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_downloads_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_faq_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_music_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_technology_page.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:duma_suites/screens/Mobile/details/notification_detail_page.dart';
+import 'package:duma_suites/platforms/Mobile/details/notification_detail_page.dart';
 
 class MobileNotificationsPage extends StatelessWidget {
   const MobileNotificationsPage({super.key});

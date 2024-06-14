@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:duma_suites/services/app_base_client.dart';
+import 'package:duma_suites/core/app_base_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 const String baseUrl = 'http://localhost:5050/api/';

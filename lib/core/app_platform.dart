@@ -1,18 +1,21 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
+
 // Mobile version
 import 'package:duma_suites/widgets/bottom_navigation.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_home_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_blogs_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_explore_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_notifications_page.dart';
-import 'package:duma_suites/screens/Mobile/main/mobile_account_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_home_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_blogs_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_explore_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_notifications_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_account_page.dart';
 
 // Web version
-import 'package:duma_suites/screens/Web/main/web_home_page.dart';
-import 'package:duma_suites/screens/Web/main/web_blogs_page.dart';
-import 'package:duma_suites/screens/Web/main/web_explore_page.dart';
-import 'package:duma_suites/screens/Web/main/web_notifications_page.dart';
-import 'package:duma_suites/screens/Web/main/web_profile_page.dart';
+import 'package:duma_suites/platforms/Web/screens/lg/web_home_page.dart';
+import 'package:duma_suites/platforms/Web/screens/lg/web_blogs_page.dart';
+import 'package:duma_suites/platforms/Web/screens/lg/web_explore_page.dart';
+import 'package:duma_suites/platforms/Web/screens/lg/web_notifications_page.dart';
+import 'package:duma_suites/platforms/Web/screens/lg/web_profile_page.dart';
 // Import other necessary pages for both versions
 
 class Screens extends StatefulWidget {
@@ -35,13 +38,13 @@ class ScreensState extends State<Screens> {
         const MobileAccountPage(),
       ];
 
-  final List<Widget> webPages = [
-    const WebHomePage(),
-    const WebExplorerPage(),
-    const WebBlogsPage(),
-    const WebNotificationsPage(),
-    const WebProfilePage(),
-  ];
+  List<Widget> get webPages => [
+        const WebHomePage(),
+        const WebExplorerPage(),
+        const WebBlogsPage(),
+        const WebNotificationsPage(),
+        const WebProfilePage(),
+      ];
 
   void _onTap(int index) {
     setState(() {
@@ -51,11 +54,15 @@ class ScreensState extends State<Screens> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    // double screenHeight = MediaQuery.of(context).size.height;
+    final List<Widget> selectedPages;
 
-    final List<Widget> selectedPages =
-        screenWidth < 600 ? mobilePages : webPages;
+    if (kIsWeb) {
+      selectedPages = webPages;
+    } else if (Platform.isAndroid || Platform.isIOS) {
+      selectedPages = mobilePages;
+    } else {
+      selectedPages = [const Center(child: Text('Unsupported platform'))];
+    }
 
     return Scaffold(
       appBar: AppBar(

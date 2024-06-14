@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:duma_suites/screens/Mobile/main/mobile_home_page.dart'; // Make sure to import your MobileHomePage
+import 'package:duma_suites/platforms/Mobile/main/mobile_home_page.dart'; // Make sure to import your MobileHomePage
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
