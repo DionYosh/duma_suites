@@ -85,13 +85,39 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: Icon(_isFormVisible ? Icons.close : Icons.add),
-            onPressed: _toggleFormVisibility,
-          ),
+          title: Row(
+        children: [
+          ElevatedButton(
+              iconAlignment: IconAlignment.end,
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xffffffff),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                minimumSize: const Size(16, 8),
+              ),
+              child: Row(
+                children: [
+                  const Text(
+                    'Create Post',
+                    style: TextStyle(
+                      color: Color(0xff4B0082),
+                      fontWeight: FontWeight.w900,
+                      fontSize: 18,
+                    ),
+                  ),
+                  IconButton(
+                    iconSize: 30,
+                    focusColor: const Color(0xff4B0082),
+                    color: const Color(0xff4B0082),
+                    icon: Icon(_isFormVisible ? Icons.close : Icons.add),
+                    onPressed: _toggleFormVisibility,
+                  ),
+                ],
+              )),
         ],
-      ),
+      )),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -99,85 +125,119 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
             if (_isFormVisible)
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
-                child: Form(
-                  key: _formKey,
-                  child: Container(
-                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          decoration: const InputDecoration(labelText: 'Title'),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter a title';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _newTitle = value ?? '';
-                          },
+                child: Center(
+                  child: Card(
+                    elevation: 40,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 36.0, vertical: 60.0),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Title',
+                                border: OutlineInputBorder(),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a title';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _newTitle = value ?? '';
+                              },
+                            ),
+                            const SizedBox(height: 8),
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Description',
+                                border: OutlineInputBorder(),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a description';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _newDescription = value ?? '';
+                              },
+                            ),
+                            const SizedBox(height: 8),
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Slug',
+                                border: OutlineInputBorder(),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a slug';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _newSlug = value ?? '';
+                              },
+                            ),
+                            const SizedBox(height: 8),
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Content',
+                                border: OutlineInputBorder(),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter the content';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _newContent = value ?? '';
+                              },
+                            ),
+                            const SizedBox(height: 8),
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: 'Avatar URL',
+                                border: OutlineInputBorder(),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter the avatar URL';
+                                }
+                                return null;
+                              },
+                              onSaved: (value) {
+                                _newAvatarUrl = value ?? '';
+                              },
+                            ),
+                            const SizedBox(height: 16),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xff00FA9A),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                minimumSize: const Size(310, 50),
+                              ),
+                              onPressed: _addPost,
+                              child: const Text(
+                                'Create Blog Post',
+                                style: TextStyle(
+                                    color: Color(0xff4B0082),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Description'),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter a description';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _newDescription = value ?? '';
-                          },
-                        ),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          decoration: const InputDecoration(labelText: 'Slug'),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter a slug';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _newSlug = value ?? '';
-                          },
-                        ),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Content'),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter the content';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _newContent = value ?? '';
-                          },
-                        ),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Avatar URL'),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter the avatar URL';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) {
-                            _newAvatarUrl = value ?? '';
-                          },
-                        ),
-                        const SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: _addPost,
-                          child: const Text('Add Post'),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

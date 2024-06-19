@@ -17,24 +17,32 @@ class MobileHomePage extends StatelessWidget {
               const Text(
                 'Welcome to Duma Suites!',
                 style: TextStyle(
-                  fontSize: 32.0,
+                  fontSize: 26.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'At Duma Suites, we are committed to providing you with top-notch services to enhance your experience in both music and technology. Our platform offers an extensive library of music resources, including tracks, albums, and playlists, all at your fingertips. In addition, we provide cutting-edge technology resources, from the latest software tools to in-depth tutorials and guides.',
+                'At Duma Suites, we are committed to providing you with top-notch '
+                'services to enhance your experience '
+                'in both music and technology. '
+                'Our platform offers an extensive library of music resources, '
+                'including tracks, albums, and playlists, all at your fingertips. '
+                'In addition, we provide cutting-edge technology resources, '
+                'from the latest software tools to in-depth tutorials and guides.',
                 style: TextStyle(
                   fontSize: 18.0,
-                  color: Colors.black,
+                  color: Color(0xff4B0082),
                 ),
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'Our seamless booking and profile management system ensures you can easily schedule your sessions and keep track of your activities. We also offer comprehensive support and documentation to help you make the most of our services.',
+                'Our seamless booking and profile management system ensures '
+                'you can easily schedule your sessions and keep track of your activities. '
+                'We also offer comprehensive support and documentation to help you make the most of our services.',
                 style: TextStyle(
                   fontSize: 18.0,
-                  color: Colors.black,
+                  color: Color(0xff4B0082),
                 ),
               ),
               const SizedBox(height: 24.0),
@@ -169,11 +177,13 @@ class CallToActionSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Text(
-          'Get Started with Duma Suites',
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
+        const Center(
+          child: Text(
+            'Get Started with Duma Suites',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(height: 16.0),

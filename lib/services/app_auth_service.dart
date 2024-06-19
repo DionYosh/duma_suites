@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:duma_suites/core/app_base_client.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-const String baseUrl = 'http://localhost:5050/api/';
+const String baseUrl = 'http://localhost:5050/api';
 const String apiKey = '4C0S-fBL8ioTsxplZC5fQubpv1AYf6Zi';
 
 class AuthService {
@@ -62,11 +62,18 @@ class AuthService {
         print('Error: $e');
       }
       // Provide a more specific error message
-      throw Exception('Failed to sign in. Please check your credentials and try again.');
+      throw Exception(
+          'Failed to sign in. Please check your credentials and try again.');
     }
   }
 
   Future<String?> getToken() async {
     return await storage.read(key: 'token');
+  }
+
+  void handleLogout() {
+    if (kDebugMode) {
+      print("Logging out...");
+    }
   }
 }

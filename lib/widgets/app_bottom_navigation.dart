@@ -24,6 +24,10 @@ class BottomNavigation extends StatelessWidget {
           label: 'Explore',
         ),
         BottomNavigationBarItem(
+          icon: Icon(Icons.search),
+          label: 'Search',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.add),
           label: 'Blogs',
         ),

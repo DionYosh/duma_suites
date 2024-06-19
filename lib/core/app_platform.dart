@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 
 // Mobile version
-import 'package:duma_suites/widgets/bottom_navigation.dart';
+import 'package:duma_suites/widgets/app_bottom_navigation.dart';
 import 'package:duma_suites/platforms/Mobile/main/mobile_home_page.dart';
 import 'package:duma_suites/platforms/Mobile/main/mobile_blogs_page.dart';
+import 'package:duma_suites/platforms/Mobile/main/mobile_search_page.dart';
 import 'package:duma_suites/platforms/Mobile/main/mobile_explore_page.dart';
 import 'package:duma_suites/platforms/Mobile/main/mobile_notifications_page.dart';
 import 'package:duma_suites/platforms/Mobile/main/mobile_account_page.dart';
@@ -16,6 +17,7 @@ import 'package:duma_suites/platforms/Web/screens/lg/web_blogs_page.dart';
 import 'package:duma_suites/platforms/Web/screens/lg/web_explore_page.dart';
 import 'package:duma_suites/platforms/Web/screens/lg/web_notifications_page.dart';
 import 'package:duma_suites/platforms/Web/screens/lg/web_profile_page.dart';
+
 // Import other necessary pages for both versions
 
 class Screens extends StatefulWidget {
@@ -33,6 +35,7 @@ class ScreensState extends State<Screens> {
   List<Widget> get mobilePages => [
         MobileHomePage(token: widget.token),
         const MobileExplorePage(),
+        const MobileSearchPage(),
         const MobileBlogsPage(),
         const MobileNotificationsPage(),
         const MobileAccountPage(),
@@ -65,28 +68,7 @@ class ScreensState extends State<Screens> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          height: 40,
-          decoration: BoxDecoration(
-            color: const Color(0xFFffffff),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: const TextField(
-            decoration: InputDecoration(
-              hintText: 'Search...',
-              hintStyle: TextStyle(color: Color(0xFF00FF7F)),
-              border: InputBorder.none,
-              prefixIcon: Icon(Icons.search, color: Color(0xFF00FF7F)),
-              contentPadding: EdgeInsets.symmetric(vertical: 10.0),
-            ),
-            style: TextStyle(color: Color(0xff04AA6D)),
-            cursorColor: Color(0xff04AA6D),
-          ),
-        ),
-        // Adjust the background color if needed
-        backgroundColor: const Color(0xFF00FF7F),
-      ),
+      // appBar: AppBar(),
       // Use the selected page widget
       body: selectedPages[currentIndex],
       bottomNavigationBar: BottomNavigation(

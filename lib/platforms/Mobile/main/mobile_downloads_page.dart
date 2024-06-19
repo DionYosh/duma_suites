@@ -6,6 +6,9 @@ class MobileDownloadsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Downloads'),
+      ),
       body: Container(
         padding: const EdgeInsets.all(10.0),
         child: const Center(

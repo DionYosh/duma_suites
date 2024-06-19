@@ -31,22 +31,35 @@ class MobileAboutPage extends StatelessWidget {
               Text(
                 'Welcome to Duma Suites! We are dedicated to providing you with the best service. '
                 'Our application offers a seamless experience for managing your bookings and profiles. '
-                'Additionally, we have built an application for showcasing and '
-                'downloading resources related to music and technology.',
+                'Additionally, we have built this application system for showcasing and '
+                'downloading resources related to Services we offer.',
                 style: TextStyle(
                   fontSize: 16.0,
                 ),
               ),
               SizedBox(height: 16.0),
               Center(
-                child: Text(
-                  'Our Team',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
+                  child: Column(
+                children: [
+                  Text(
+                    'Our Team',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ),
+                  SizedBox(height: 16.0),
+                  Text(
+                    'Welcome to Duma Suites! We are dedicated to providing you with the best service. '
+                    'Our application offers a seamless experience for managing your bookings and profiles. '
+                    'Additionally, we have built this application system for showcasing and '
+                    'downloading resources related to Services we offer.',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ],
+              )),
               SizedBox(height: 8.0),
               TeamMembersColumn(),
               SizedBox(height: 16.0),

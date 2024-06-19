@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MobileMusicPage extends StatelessWidget {
-  const MobileMusicPage({super.key});
+class MobileSearchPage extends StatelessWidget {
+  const MobileSearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Music'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(10.0),
         child: const Center(
-          child: Text('This is the Mobile Music Page'),
+          child: Text('This is the Mobile Search Page'),
         ),
       ),
     );
