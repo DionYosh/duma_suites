@@ -22,31 +22,43 @@ class SignUpPageState extends State<SignUpPage> {
 
   Future<void> _signUp() async {
     if (_formKey.currentState!.validate()) {
-      final response = await http.post(
-        Uri.parse('http://localhost:5050/api/auth/signup'),
-        headers: {'Content-Type': 'application/json; charset=UTF-8'},
-        body: jsonEncode({
-          'email': _emailController.text,
-          'username': _usernameController.text,
-          'gender': _selectedGender!,
-          'password': _passwordController.text,
-          'password_confirmation': _confirmPasswordController.text,
-        }),
-      );
-
-      if (response.statusCode == 201) {
-        Fluttertoast.showToast(
-          msg:
-              "User created successfully. Please check your email for the verification link.",
-          toastLength: Toast.LENGTH_LONG,
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Colors.green,
-          textColor: Colors.white,
-          fontSize: 16.0,
+      try {
+        final response = await http.post(
+          Uri.parse('http://192.168.200.252:5050/api/auth/signup'),
+          headers: {'Content-Type': 'application/json; charset=UTF-8'},
+          body: jsonEncode({
+            'email': _emailController.text,
+            'username': _usernameController.text,
+            'gender': _selectedGender!,
+            'password': _passwordController.text,
+            'password_confirmation': _confirmPasswordController.text,
+          }),
         );
-      } else {
+
+        if (response.statusCode == 201) {
+          Fluttertoast.showToast(
+            msg:
+                "User created successfully. Please check your email for the verification link.",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+        } else {
+          Fluttertoast.showToast(
+            msg:
+                "Failed to create user: ${jsonDecode(response.body)['message']}",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+        }
+      } catch (error) {
         Fluttertoast.showToast(
-          msg: "Failed to create user: ${jsonDecode(response.body)['message']}",
+          msg: "Error: $error",
           toastLength: Toast.LENGTH_LONG,
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Colors.red,
