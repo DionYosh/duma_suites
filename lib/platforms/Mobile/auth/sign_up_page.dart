@@ -30,6 +30,7 @@ class SignUpPageState extends State<SignUpPage> {
           'username': _usernameController.text,
           'gender': _selectedGender!,
           'password': _passwordController.text,
+          'password_confirmation': _confirmPasswordController.text,
         }),
       );
 

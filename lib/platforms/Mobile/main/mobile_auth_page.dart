@@ -40,7 +40,7 @@ class MobileAuthPage extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  minimumSize: const Size(6, 40),
+                  minimumSize: const Size(10, 50),
                 ),
                 onPressed: () {
                   Navigator.push(
