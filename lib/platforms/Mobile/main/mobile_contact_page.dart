@@ -152,11 +152,14 @@ class MobileContactPage extends StatelessWidget {
                         ),
                         minimumSize: const Size(150, 50),
                       ),
-                      child: const Text('Submit Message',
-                          style: TextStyle(
-                              color: Color(0xff4B0082),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold)),
+                      child: const Text(
+                        'Submit Message',
+                        style: TextStyle(
+                          color: Color(0xff4B0082),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
