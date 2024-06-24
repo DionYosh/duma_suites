@@ -1,8 +1,8 @@
 import 'dart:convert';
+import 'package:duma_suites/platforms/Mobile/auth/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:duma_suites/platforms/Mobile/auth/sign_in_page.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -13,25 +13,25 @@ class SignUpPage extends StatefulWidget {
 }
 
 class SignUpPageState extends State<SignUpPage> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
-  String? _selectedGender;
+  final formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  String? selectedGender;
 
-  Future<void> _signUp() async {
-    if (_formKey.currentState!.validate()) {
+  Future<void> signUp() async {
+    if (formKey.currentState!.validate()) {
       try {
         final response = await http.post(
           Uri.parse('http://192.168.200.252:5050/api/auth/signup'),
           headers: {'Content-Type': 'application/json; charset=UTF-8'},
           body: jsonEncode({
-            'email': _emailController.text,
-            'username': _usernameController.text,
-            'gender': _selectedGender!,
-            'password': _passwordController.text,
-            'password_confirmation': _confirmPasswordController.text,
+            'email': emailController.text,
+            'username': usernameController.text,
+            'gender': selectedGender!,
+            'password': passwordController.text,
+            'password-confirmation': confirmPasswordController.text,
           }),
         );
 
@@ -69,11 +69,11 @@ class SignUpPageState extends State<SignUpPage> {
     }
   }
 
-  Future<void> _signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     // Implement Google Sign-In logic here
   }
 
-  Future<void> _signInWithGitHub() async {
+  Future<void> signInWithGitHub() async {
     // Implement GitHub Sign-In logic here
   }
 
@@ -81,20 +81,19 @@ class SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign Up'),
+        title: const Text(
+          'Sign Up',
+          style: TextStyle(),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
         child: Card(
-          elevation: 8,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 30.0, horizontal: 30.0),
             child: Form(
-              key: _formKey,
+              key: formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -108,10 +107,13 @@ class SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 20.0),
                   TextFormField(
-                    controller: _emailController,
+                    controller: emailController,
                     decoration: const InputDecoration(
                       labelText: 'Email',
-                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.mail,
+                        color: Color(0xff4B0082),
+                      ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -122,10 +124,13 @@ class SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 16.0),
                   TextFormField(
-                    controller: _usernameController,
+                    controller: usernameController,
                     decoration: const InputDecoration(
                       labelText: 'Username',
-                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Color(0xff4B0082),
+                      ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -138,9 +143,12 @@ class SignUpPageState extends State<SignUpPage> {
                   DropdownButtonFormField<String>(
                     decoration: const InputDecoration(
                       labelText: 'Gender',
-                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.transgender_rounded,
+                        color: Color(0xff4B0082),
+                      ),
                     ),
-                    value: _selectedGender,
+                    value: selectedGender,
                     items: ['Male', 'Female', 'Other'].map((String gender) {
                       return DropdownMenuItem<String>(
                         value: gender,
@@ -149,7 +157,7 @@ class SignUpPageState extends State<SignUpPage> {
                     }).toList(),
                     onChanged: (String? newValue) {
                       setState(() {
-                        _selectedGender = newValue;
+                        selectedGender = newValue;
                       });
                     },
                     validator: (value) {
@@ -161,10 +169,13 @@ class SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 16.0),
                   TextFormField(
-                    controller: _passwordController,
+                    controller: passwordController,
                     decoration: const InputDecoration(
                       labelText: 'Password',
-                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        color: Color(0xff4B0082),
+                      ),
                     ),
                     obscureText: true,
                     validator: (value) {
@@ -176,16 +187,19 @@ class SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 16.0),
                   TextFormField(
-                    controller: _confirmPasswordController,
+                    controller: confirmPasswordController,
                     decoration: const InputDecoration(
                       labelText: 'Confirm Password',
-                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.lock_clock_rounded,
+                        color: Color(0xff4B0082),
+                      ),
                     ),
                     obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please confirm your password';
-                      } else if (value != _passwordController.text) {
+                      } else if (value != passwordController.text) {
                         return 'Passwords do not match';
                       }
                       return null;
@@ -193,7 +207,7 @@ class SignUpPageState extends State<SignUpPage> {
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: _signUp,
+                    onPressed: signUp,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff00FA9A),
                       shape: RoundedRectangleBorder(
@@ -219,7 +233,7 @@ class SignUpPageState extends State<SignUpPage> {
                     ),
                     Buttons.Google,
                     text: "Sign up with Google",
-                    onPressed: _signInWithGoogle,
+                    onPressed: signInWithGoogle,
                   ),
                   const SizedBox(height: 10),
                   SignInButton(
@@ -230,7 +244,7 @@ class SignUpPageState extends State<SignUpPage> {
                     ),
                     Buttons.GitHub,
                     text: "Sign up with GitHub",
-                    onPressed: _signInWithGitHub,
+                    onPressed: signInWithGitHub,
                   ),
                   const SizedBox(height: 20),
                   InkWell(
@@ -242,7 +256,7 @@ class SignUpPageState extends State<SignUpPage> {
                       );
                     },
                     child: const Text(
-                      'Have an account? Sign In',
+                      'Already have an account? Sign In',
                       style: TextStyle(
                         color: Color(0xff4B0082),
                         fontSize: 16,

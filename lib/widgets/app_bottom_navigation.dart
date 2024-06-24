@@ -32,12 +32,8 @@ class BottomNavigation extends StatelessWidget {
           label: 'Blogs',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
-          label: 'Notifications',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
+          icon: Icon(Icons.person_rounded),
+          label: 'Account',
         ),
       ],
     );

@@ -48,11 +48,6 @@ class AppDrawer extends StatelessWidget {
             ),
             title: const Text(
               'About',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -63,11 +58,6 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.phone),
             title: const Text(
               'Contact',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -78,11 +68,6 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.file_download),
             title: const Text(
               'Downloads',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -93,11 +78,6 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.event),
             title: const Text(
               'Events',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -108,11 +88,6 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.question_answer),
             title: const Text(
               'FAQ',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -123,11 +98,6 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.library_music_rounded),
             title: const Text(
               'Music',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -135,14 +105,19 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.notifications),
+            title: const Text(
+              'Notifications',
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              navigateTo(context, 'Notifications');
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.computer),
             title: const Text(
               'Technology',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -153,11 +128,6 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.logout),
             title: const Text(
               'Log Out',
-              style: TextStyle(
-                color: Color(0xff4B0082),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
             ),
             onTap: () {
               Navigator.pop(context);

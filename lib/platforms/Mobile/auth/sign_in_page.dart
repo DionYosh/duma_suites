@@ -13,21 +13,22 @@ class SignInPage extends StatefulWidget {
 }
 
 class SignInPageState extends State<SignInPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-  Future<void> _signIn() async {
+  Future<void> signIn() async {
     final response = await http.post(
       Uri.parse('http://your-adonis-api-url/signin'),
       headers: {'Content-Type': 'application/json; charset=UTF-8'},
       body: jsonEncode({
-        'email': _emailController.text,
-        'password': _passwordController.text,
+        'email': emailController.text,
+        'password': passwordController.text,
       }),
     );
 
-    if (!mounted)
+    if (!mounted) {
       return; // Check if the widget is still mounted before using context
+    }
 
     if (response.statusCode == 200) {
       final responseBody = json.decode(response.body);
@@ -51,11 +52,11 @@ class SignInPageState extends State<SignInPage> {
     }
   }
 
-  Future<void> _signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     // Implement Google Sign-In logic here
   }
 
-  Future<void> _signInWithGitHub() async {
+  Future<void> signInWithGitHub() async {
     // Implement GitHub Sign-In logic here
   }
 
@@ -68,10 +69,6 @@ class SignInPageState extends State<SignInPage> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 60.0, horizontal: 30.0),
         child: Card(
-          elevation: 8,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 40.0, horizontal: 30.0),
@@ -88,24 +85,24 @@ class SignInPageState extends State<SignInPage> {
                 ),
                 const SizedBox(height: 30.0),
                 TextField(
-                  controller: _emailController,
+                  controller: emailController,
                   decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.mail),
                     labelText: 'Email',
-                    border: OutlineInputBorder(),
                   ),
                 ),
                 const SizedBox(height: 16.0),
                 TextField(
-                  controller: _passwordController,
+                  controller: passwordController,
                   decoration: const InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
                     labelText: 'Password',
-                    border: OutlineInputBorder(),
                   ),
                   obscureText: true,
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: _signIn,
+                  onPressed: signIn,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff00FA9A),
                     shape: RoundedRectangleBorder(
@@ -131,7 +128,7 @@ class SignInPageState extends State<SignInPage> {
                   ),
                   Buttons.Google,
                   text: "Sign in with Google",
-                  onPressed: _signInWithGoogle,
+                  onPressed: signInWithGoogle,
                 ),
                 const SizedBox(height: 10),
                 SignInButton(
@@ -142,7 +139,7 @@ class SignInPageState extends State<SignInPage> {
                   ),
                   Buttons.GitHub,
                   text: "Sign in with GitHub",
-                  onPressed: _signInWithGitHub,
+                  onPressed: signInWithGitHub,
                 ),
                 const SizedBox(height: 20),
                 InkWell(
@@ -154,11 +151,11 @@ class SignInPageState extends State<SignInPage> {
                     );
                   },
                   child: const Text(
-                    'Have an account? Sign In',
+                    'Don\'t have an account? Sign Up',
                     style: TextStyle(
                       color: Color(0xff4B0082),
                       fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ),
