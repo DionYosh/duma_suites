@@ -7,322 +7,290 @@ class CustomTheme {
 }
 
 // Define constants for widget colors
-const Color widgetBgColor = Color(0xff00FA9A);
-const Color widgetTxtColor = Color(0xff4B0082);
+class CustomColors {
+  static const Color widgetBgColor = Color(0xff00FA9A);
+  static const Color widgetTxtColor = Color(0xff4B0082);
+  static const Color whiteBgColor = Color(0xffffffff);
+  static const Color grayTxtColor = Color(0xff808080);
+  static const Color limeTxtColor = Color(0xff00FF00);
+  static const Color widgetDividerColor = Color(0xff0d4a32);
+}
 
 // Define a common text theme to avoid repetition
 const TextTheme commonTextTheme = TextTheme(
   // displayLarge
   displayLarge: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 32,
     fontWeight: FontWeight.bold,
   ),
   // displayMedium
   displayMedium: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 28,
     fontWeight: FontWeight.bold,
   ),
   // displaySmall
   displaySmall: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 24,
     fontWeight: FontWeight.bold,
   ),
   // headlineMedium
   headlineMedium: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 22,
     fontWeight: FontWeight.bold,
   ),
   // headlineSmall
   headlineSmall: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 20,
     fontWeight: FontWeight.bold,
   ),
   // titleLarge
   titleLarge: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 18,
     fontWeight: FontWeight.w600,
   ),
   // titleMedium
   titleMedium: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 16,
     fontWeight: FontWeight.w600,
   ),
   // titleSmall
   titleSmall: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 14,
     fontWeight: FontWeight.w600,
   ),
   // bodyLarge
   bodyLarge: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 16,
     fontWeight: FontWeight.normal,
   ),
   // bodyMedium
   bodyMedium: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 14,
     fontWeight: FontWeight.normal,
   ),
   // bodySmall
   bodySmall: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 12,
     fontWeight: FontWeight.normal,
   ),
   // labelLarge
   labelLarge: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 14,
     fontWeight: FontWeight.w500,
   ),
   // labelMedium
   labelMedium: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 12,
     fontWeight: FontWeight.w500,
   ),
   // labelSmall
   labelSmall: TextStyle(
-    color: widgetTxtColor,
+    color: CustomColors.widgetTxtColor,
     fontSize: 10,
     fontWeight: FontWeight.w500,
   ),
 );
 
-final ThemeData themeData = ThemeData(
-  // Customized primaryColor
-  primaryColor: widgetBgColor,
-
-  // Customized primaryColorDark
-  primaryColorDark: widgetBgColor,
-
-  // Customized primaryColorLight
-  primaryColorLight: widgetBgColor,
-
-  // Customized MaterialColor
-  // primarySwatch: MaterialColor(),
-  // Customized Color
-  scaffoldBackgroundColor: widgetBgColor,
-  // Customized textTheme
-  textTheme: const TextTheme(
-    // displayLarge
-    displayLarge: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 32,
+// Define a common button theme to avoid repetition
+ButtonStyle commonButtonStyle = ButtonStyle(
+  /** **/
+  iconColor: WidgetStateProperty.all(CustomColors.widgetTxtColor),
+  backgroundColor: WidgetStateProperty.all(CustomColors.whiteBgColor),
+  foregroundColor: WidgetStateProperty.all(CustomColors.widgetTxtColor),
+  textStyle: WidgetStateProperty.all(
+    const TextStyle(
+      color: CustomColors.widgetTxtColor,
+      fontSize: 18.0,
       fontWeight: FontWeight.bold,
-    ),
-    // displayMedium
-    displayMedium: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 28,
-      fontWeight: FontWeight.bold,
-    ),
-    // displaySmall
-    displaySmall: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-    ),
-    // headlineMedium
-    headlineMedium: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 22,
-      fontWeight: FontWeight.bold,
-    ),
-    // headlineSmall
-    headlineSmall: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-    ),
-    // titleLarge
-    titleLarge: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 18,
-      fontWeight: FontWeight.w600,
-    ),
-    // titleMedium
-    titleMedium: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-    ),
-    // titleSmall
-    titleSmall: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 14,
-      fontWeight: FontWeight.w600,
-    ),
-    // bodyLarge
-    bodyLarge: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 16,
-      fontWeight: FontWeight.normal,
-    ),
-    // bodyMedium
-    bodyMedium: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-    ),
-    // bodySmall
-    bodySmall: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 12,
-      fontWeight: FontWeight.normal,
-    ),
-    // labelLarge
-    labelLarge: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 14,
-      fontWeight: FontWeight.w500,
-    ),
-    // labelMedium
-    labelMedium: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 12,
-      fontWeight: FontWeight.w500,
-    ),
-    // labelSmall
-    labelSmall: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 10,
-      fontWeight: FontWeight.w500,
     ),
   ),
+  padding: WidgetStateProperty.all(
+    const EdgeInsets.symmetric(
+      vertical: 16.0,
+      horizontal: 20.0,
+    ),
+  ),
+  shape: WidgetStateProperty.all(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+    ),
+  ),
+);
 
 
-  // typography
-  typography: Typography(),
 
-  // badgeTheme
-  badgeTheme: const BadgeThemeData(),
+final ThemeData themeData = ThemeData(
+  // General configurations
+  materialTapTargetSize: MaterialTapTargetSize.padded,
+  pageTransitionsTheme: const PageTransitionsTheme(),
+  platform: TargetPlatform.android,
+  //
+  // Scrollbar theme
+  scrollbarTheme: ScrollbarThemeData(
+    thumbColor: WidgetStateProperty.all(CustomColors.widgetBgColor),
+  ),
+  //
+  scaffoldBackgroundColor: CustomColors.widgetBgColor,
 
-  // iconTheme
-  iconTheme: const IconThemeData(),
+  // Icon themes
+  iconTheme: const IconThemeData(color: CustomColors.widgetTxtColor),
+  primaryIconTheme: const IconThemeData(color: CustomColors.widgetTxtColor),
 
-  // primaryIconTheme
-  primaryIconTheme: const IconThemeData(),
+  // Text themes
+  primaryTextTheme: commonTextTheme,
+  textTheme: commonTextTheme,
 
-  // Customized the ScrollbarThemeData
-  scrollbarTheme: const ScrollbarThemeData(),
-
-  // Customized AppBarTheme
+  actionIconTheme: const ActionIconThemeData(),
   // AppBar theme
   appBarTheme: AppBarTheme(
-    backgroundColor: widgetBgColor,
-    foregroundColor: widgetTxtColor,
+    backgroundColor: CustomColors.widgetBgColor,
+    foregroundColor: CustomColors.widgetTxtColor,
     titleTextStyle: commonTextTheme.headlineSmall,
     toolbarTextStyle: commonTextTheme.bodyMedium,
     elevation: 16,
     toolbarHeight: 60,
     actionsIconTheme: const IconThemeData(
-      color: widgetTxtColor,
+      color: CustomColors.widgetTxtColor,
       size: 26.0,
     ),
     iconTheme: const IconThemeData(
-      color: widgetTxtColor,
+      color: CustomColors.widgetTxtColor,
       size: 26.0,
     ),
   ),
 
-  // Customized the DrawerThemeData
-  drawerTheme: const DrawerThemeData(
-    backgroundColor: widgetBgColor,
-    shadowColor: widgetTxtColor,
+  // Badge theme
+  badgeTheme: const BadgeThemeData(
+    backgroundColor: CustomColors.widgetBgColor,
+    textColor: CustomColors.widgetTxtColor,
+  ),
+  bannerTheme: const MaterialBannerThemeData(),
+  bottomAppBarTheme: const BottomAppBarTheme(),
+  // Bottom Navigation Bar theme
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: CustomColors.widgetTxtColor,
+    selectedItemColor: CustomColors.widgetBgColor,
+    unselectedItemColor: CustomColors.widgetBgColor.withOpacity(0.6),
+    selectedIconTheme: const IconThemeData(
+      color: CustomColors.widgetBgColor,
+      size: 26.0,
+    ),
+    selectedLabelStyle: const TextStyle(
+      color: CustomColors.widgetTxtColor,
+      fontWeight: FontWeight.w900,
+      fontSize: 14,
+    ),
+    unselectedIconTheme: const IconThemeData(
+      color: CustomColors.widgetBgColor,
+    ),
+    unselectedLabelStyle: const TextStyle(
+      color: CustomColors.widgetBgColor,
+      fontWeight: FontWeight.w600,
+    ),
+    elevation: 10,
+  ),
+  bottomSheetTheme: const BottomSheetThemeData(),
+  buttonBarTheme: const ButtonBarThemeData(),
+  // Button themes
+  buttonTheme: ButtonThemeData(
+    buttonColor: CustomColors.widgetBgColor,
+    textTheme: ButtonTextTheme.primary,
+    padding: const EdgeInsets.symmetric(
+      vertical: 16.0,
+      horizontal: 20.0,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12),
+    ),
   ),
 
-  // CardTheme
+  cardColor: CustomColors.whiteBgColor,
+  // Card theme
   cardTheme: CardTheme(
-    shadowColor: widgetTxtColor,
+    clipBehavior: Clip.none,
+    color: CustomColors.whiteBgColor,
+    shadowColor: CustomColors.widgetTxtColor,
+    elevation: 8,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
       side: const BorderSide(
         style: BorderStyle.none,
-        color: widgetTxtColor,
+        color: CustomColors.widgetTxtColor,
         width: 1.0,
       ),
     ),
-    elevation: 8,
+  ),
+  checkboxTheme: const CheckboxThemeData(),
+  chipTheme: const ChipThemeData(),
+  // Color scheme
+  colorScheme: const ColorScheme.light(
+    primary: CustomColors.widgetBgColor,
+    onPrimary: CustomColors.widgetTxtColor,
+    surface: CustomColors.widgetBgColor,
+    onSurface: CustomColors.widgetTxtColor,
   ),
 
-  // Customized the DropdownMenuThemeData
-  dropdownMenuTheme: const DropdownMenuThemeData(
-    inputDecorationTheme: InputDecorationTheme(
-      iconColor: widgetTxtColor,
-      prefixStyle: TextStyle(
-        color: widgetTxtColor,
-      ),
-      prefixIconColor: widgetTxtColor,
-    ),
-    textStyle: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 14.0,
-      fontWeight: FontWeight.bold,
-      fontStyle: FontStyle.normal,
-    ),
-    menuStyle: MenuStyle(),
-  ),
+  // dataTableTheme
+  dataTableTheme: const DataTableThemeData(),
 
-  // Customized ListTileThemeData
-  listTileTheme: const ListTileThemeData(
-    // iconColor
-    iconColor: widgetTxtColor,
+  // datePickerTheme
+  datePickerTheme: const DatePickerThemeData(),
 
-    // textColor
-    textColor: widgetTxtColor,
+  // dialogBackgroundColor
+  dialogBackgroundColor: CustomColors.whiteBgColor,
 
-    // titleTextStyle
-    titleTextStyle: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 18,
-      fontWeight: FontWeight.w500,
-    ),
+  // dialogTheme
+  dialogTheme: const DialogTheme(),
 
-    // subtitleTextStyle
-    subtitleTextStyle: TextStyle(
-      color: widgetTxtColor,
-      fontSize: 16,
-      fontWeight: FontWeight.w500,
-    ),
+  disabledColor: CustomColors.grayTxtColor,
 
-    // shape
-    shape: Border.symmetric(
-      // vertical
-      vertical: BorderSide(
-        color: widgetTxtColor,
+  dividerColor: CustomColors.widgetDividerColor,
+
+  dividerTheme: const DividerThemeData(),
+  // Drawer theme
+  drawerTheme: DrawerThemeData(
+    backgroundColor: CustomColors.widgetBgColor,
+    shadowColor: CustomColors.widgetTxtColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(4.0),
+      side: const BorderSide(
         style: BorderStyle.none,
-        width: 1.0,
-      ),
-
-      // horizontal
-      horizontal: BorderSide(
-        color: widgetTxtColor,
-        style: BorderStyle.none,
-        width: 1.0,
+        color: CustomColors.widgetTxtColor,
       ),
     ),
-
-    // ListTileStyle
-    style: ListTileStyle.list,
   ),
 
+  // elevatedButtonTheme
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: commonButtonStyle,
+  ),
+  expansionTileTheme: const ExpansionTileThemeData(),
+
+  filledButtonTheme: const FilledButtonThemeData(),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(),
+  focusColor: CustomColors.limeTxtColor,
+
+  iconButtonTheme: const IconButtonThemeData(),
   // inputDecorationTheme
   inputDecorationTheme: const InputDecorationTheme(
     // OutlineInputBorder
     border: OutlineInputBorder(
       borderSide: BorderSide(
         style: BorderStyle.solid,
-        color: widgetTxtColor,
+        color: CustomColors.widgetTxtColor,
         width: 2.0,
       ),
       gapPadding: 8.0,
@@ -332,52 +300,113 @@ final ThemeData themeData = ThemeData(
     // BorderSide
     outlineBorder: BorderSide(
       style: BorderStyle.solid,
-      color: widgetTxtColor,
+      color: CustomColors.widgetTxtColor,
       width: 16.0,
     ),
 
     // TextStyle
     labelStyle: TextStyle(
-      color: widgetTxtColor,
+      color: CustomColors.widgetTxtColor,
       fontWeight: FontWeight.bold,
       fontSize: 16,
     ),
     prefixStyle: TextStyle(),
   ),
 
-  // Customized BottomNavigationBarThemeData
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    elevation: 10,
-    backgroundColor: widgetTxtColor,
+  // menuBarTheme
+  menuBarTheme: const MenuBarThemeData(),
+  // menuButtonTheme
+  menuButtonTheme: const MenuButtonThemeData(),
+  // menuTheme
+  menuTheme: const MenuThemeData(),
 
-    // selectedItemColor
-    selectedItemColor: Color(0xFF00FF7F),
+  // navigationBarTheme
+  navigationBarTheme: const NavigationBarThemeData(),
+  // navigationDrawerTheme
+  navigationDrawerTheme: const NavigationDrawerThemeData(),
+  // navigationRailTheme
+  navigationRailTheme: const NavigationRailThemeData(),
 
-    // unselectedItemColor
-    unselectedItemColor: Color(0xFF00FF7F),
+  // listTileTheme
+  listTileTheme: const ListTileThemeData(
+    // iconColor
+    iconColor: CustomColors.widgetTxtColor,
 
-    // selectedIconTheme
-    selectedIconTheme: IconThemeData(
-      color: Color(0xFF00FF7F),
-      applyTextScaling: true,
+    // textColor
+    textColor: CustomColors.widgetTxtColor,
+
+    // titleTextStyle
+    titleTextStyle: TextStyle(
+      color: CustomColors.widgetTxtColor,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
     ),
 
-    selectedLabelStyle: TextStyle(
-      color: Color(0xFF00FF7F),
-      fontWeight: FontWeight.w900,
-      fontSize: 14,
+    // subtitleTextStyle
+    subtitleTextStyle: TextStyle(
+      color: CustomColors.widgetTxtColor,
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
     ),
 
-    // unselectedIconTheme
-    unselectedIconTheme: IconThemeData(
-      color: widgetBgColor,
+    // shape
+    shape: Border.symmetric(
+      // vertical
+      vertical: BorderSide(
+        color: CustomColors.widgetTxtColor,
+        style: BorderStyle.none,
+        width: 1.0,
+      ),
+
+      // horizontal
+      horizontal: BorderSide(
+        color: CustomColors.widgetTxtColor,
+        style: BorderStyle.none,
+        width: 1.0,
+      ),
     ),
 
-    unselectedLabelStyle: TextStyle(
-      color: widgetBgColor,
-      fontWeight: FontWeight.w600,
-    ),
+    // ListTileStyle
+    style: ListTileStyle.list,
   ),
+
+  // outlinedButtonTheme
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: commonButtonStyle,
+  ),
+
+  // primaryColor: ,
+  // primaryColorDark: ,
+  // primaryColorLight: ,
+  // primarySwatch: ,
+  popupMenuTheme: const PopupMenuThemeData(),
+  progressIndicatorTheme: const ProgressIndicatorThemeData(),
+
+  // radioTheme
+  radioTheme: const RadioThemeData(),
+
+  // shadowColor: ,
+  // splashColor: ,
+  // splashFactory: ,
+  // secondaryHeaderColor:,
+  sliderTheme: const SliderThemeData(),
+  snackBarTheme: const SnackBarThemeData(),
+  switchTheme: const SwitchThemeData(),
+  searchBarTheme: const SearchBarThemeData(),
+  searchViewTheme: const SearchViewThemeData(),
+  segmentedButtonTheme: const SegmentedButtonThemeData(),
+
+  tabBarTheme: const TabBarTheme(),
+  // textButtonTheme
+  textButtonTheme: TextButtonThemeData(
+    style: commonButtonStyle,
+  ),
+  textSelectionTheme: const TextSelectionThemeData(),
+  timePickerTheme: const TimePickerThemeData(),
+  toggleButtonsTheme: const ToggleButtonsThemeData(),
+  tooltipTheme: const TooltipThemeData(),
+
+  // Customized BottomNavigationBarThemeData
 );
 
 // List

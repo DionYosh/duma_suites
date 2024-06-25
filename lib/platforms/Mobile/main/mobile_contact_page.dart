@@ -31,7 +31,7 @@ class MobileContactPage extends StatelessWidget {
                       'contact@yourcompany.com',
                       style: TextStyle(color: Colors.blue),
                     ),
-                    onTap: () => launchUrl(
+                    onTap: () => urlLaunch(
                       'mailto:contact@dumasuites.com',
                     ), // Launch email app
                   ),
@@ -75,7 +75,7 @@ class MobileContactPage extends StatelessWidget {
                       size: 32,
                       weight: 20,
                     ),
-                    onPressed: () => launchUrl(
+                    onPressed: () => urlLaunch(
                         'https://www.facebook.com/yourcompany'), // Launch Facebook page
                   ),
                   IconButton(
@@ -83,7 +83,7 @@ class MobileContactPage extends StatelessWidget {
                       Icons.tiktok,
                       size: 32,
                     ),
-                    onPressed: () => launchUrl(
+                    onPressed: () => urlLaunch(
                         'https://twitter.com/yourcompany'), // Launch Twitter page
                   ),
                   // Add more social media icons as needed
@@ -172,12 +172,12 @@ class MobileContactPage extends StatelessWidget {
   }
 
   // Function to launch URLs with error handling
-  Future<void> launchUrl(String url) async {
+  Future<void> urlLaunch(String url) async {
     final Uri uri = Uri.parse(url);
-    if (!await launch(uri.toString())) {
+    if (!await launchUrl(uri.toString() as Uri)) {
       throw 'Could not launch $url';
     } else {
-      await launch(uri.toString());
+      await launchUrl(uri.toString() as Uri);
     }
   }
 }

@@ -44,7 +44,7 @@ class ScreensState extends State<Screens> {
   List<Widget> get mobilePages => [
         MobileHomePage(token: widget.token),
         const MobileExplorePage(),
-        const MobileSearchPage(),
+        MobileSearchPage(),
         const MobileBlogsPage(),
         const MobileAccountPage(),
         const MobileAboutPage(),
