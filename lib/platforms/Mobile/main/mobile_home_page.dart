@@ -23,13 +23,11 @@ class MobileHomePage extends StatelessWidget {
               ),
               const SizedBox(height: 16.0),
               const Text(
-                'At Duma Suites, we are committed to providing you with top-notch '
-                'services to enhance your experience '
-                'in both music and technology. '
-                'Our platform offers an extensive library of music resources, '
-                'including tracks, albums, and playlists, all at your fingertips. '
-                'In addition, we provide cutting-edge technology resources, '
-                'from the latest software tools to in-depth tutorials and guides.',
+                'Unleash your musical creativity and conquer tech challenges. '
+                'We offer a treasure trove of music resources – tracks, albums, '
+                'playlists – all accessible at your fingertips. '
+                'Plus, explore cutting-edge tech tools, in-depth tutorials, and comprehensive guides.'
+                ' We\'re here to elevate your music and tech experience',
                 style: TextStyle(
                   fontSize: 18.0,
                   color: Color(0xff4B0082),
@@ -75,11 +73,13 @@ class FeatureSection extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Features',
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
+        Center(
+          child: Text(
+            'Features',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         SizedBox(height: 16.0),
@@ -188,6 +188,7 @@ class CallToActionSection extends StatelessWidget {
         ),
         const SizedBox(height: 16.0),
         ElevatedButton(
+          style: ButtonStyle(),
           onPressed: () {
             // Handle get started button press
           },

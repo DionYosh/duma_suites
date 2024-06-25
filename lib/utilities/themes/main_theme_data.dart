@@ -6,107 +6,200 @@ class CustomTheme {
   CustomTheme({required this.themeData, required this.items});
 }
 
+// Define constants for widget colors
+const Color widgetBgColor = Color(0xff00FA9A);
+const Color widgetTxtColor = Color(0xff4B0082);
+
+// Define a common text theme to avoid repetition
+const TextTheme commonTextTheme = TextTheme(
+  // displayLarge
+  displayLarge: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+  ),
+  // displayMedium
+  displayMedium: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 28,
+    fontWeight: FontWeight.bold,
+  ),
+  // displaySmall
+  displaySmall: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  ),
+  // headlineMedium
+  headlineMedium: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+  ),
+  // headlineSmall
+  headlineSmall: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  ),
+  // titleLarge
+  titleLarge: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+  ),
+  // titleMedium
+  titleMedium: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  ),
+  // titleSmall
+  titleSmall: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  ),
+  // bodyLarge
+  bodyLarge: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+  ),
+  // bodyMedium
+  bodyMedium: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+  ),
+  // bodySmall
+  bodySmall: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+  ),
+  // labelLarge
+  labelLarge: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+  ),
+  // labelMedium
+  labelMedium: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+  ),
+  // labelSmall
+  labelSmall: TextStyle(
+    color: widgetTxtColor,
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+  ),
+);
+
 final ThemeData themeData = ThemeData(
   // Customized primaryColor
-  primaryColor: const Color(0xff00FA9A),
+  primaryColor: widgetBgColor,
 
   // Customized primaryColorDark
-  primaryColorDark: const Color(0xff01fa9a),
+  primaryColorDark: widgetBgColor,
 
   // Customized primaryColorLight
-  primaryColorLight: const Color(0x7e00fa9a),
+  primaryColorLight: widgetBgColor,
 
   // Customized MaterialColor
   // primarySwatch: MaterialColor(),
   // Customized Color
-  scaffoldBackgroundColor: const Color(0xff00FA9A),
+  scaffoldBackgroundColor: widgetBgColor,
   // Customized textTheme
   textTheme: const TextTheme(
     // displayLarge
     displayLarge: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 32,
       fontWeight: FontWeight.bold,
     ),
     // displayMedium
     displayMedium: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 28,
       fontWeight: FontWeight.bold,
     ),
     // displaySmall
     displaySmall: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 24,
       fontWeight: FontWeight.bold,
     ),
     // headlineMedium
     headlineMedium: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 22,
       fontWeight: FontWeight.bold,
     ),
     // headlineSmall
     headlineSmall: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
     // titleLarge
     titleLarge: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 18,
       fontWeight: FontWeight.w600,
     ),
     // titleMedium
     titleMedium: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 16,
       fontWeight: FontWeight.w600,
     ),
     // titleSmall
     titleSmall: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 14,
       fontWeight: FontWeight.w600,
     ),
     // bodyLarge
     bodyLarge: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 16,
       fontWeight: FontWeight.normal,
     ),
     // bodyMedium
     bodyMedium: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 14,
       fontWeight: FontWeight.normal,
     ),
     // bodySmall
     bodySmall: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 12,
       fontWeight: FontWeight.normal,
     ),
     // labelLarge
     labelLarge: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 14,
       fontWeight: FontWeight.w500,
     ),
     // labelMedium
     labelMedium: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 12,
       fontWeight: FontWeight.w500,
     ),
     // labelSmall
     labelSmall: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 10,
       fontWeight: FontWeight.w500,
     ),
   ),
+
 
   // typography
   typography: Typography(),
@@ -120,50 +213,42 @@ final ThemeData themeData = ThemeData(
   // primaryIconTheme
   primaryIconTheme: const IconThemeData(),
 
-  // Customized AppBarTheme
-  appBarTheme: const AppBarTheme(
-    backgroundColor: Color(0xff00FA9A),
-    shadowColor: Color(0xff4B0082),
+  // Customized the ScrollbarThemeData
+  scrollbarTheme: const ScrollbarThemeData(),
 
+  // Customized AppBarTheme
+  // AppBar theme
+  appBarTheme: AppBarTheme(
+    backgroundColor: widgetBgColor,
+    foregroundColor: widgetTxtColor,
+    titleTextStyle: commonTextTheme.headlineSmall,
+    toolbarTextStyle: commonTextTheme.bodyMedium,
     elevation: 16,
     toolbarHeight: 60,
-    // titleTextStyle
-    titleTextStyle: TextStyle(
-      decorationColor: Color(0xff00FA9A),
-      color: Color(0xff4B0082),
-      decoration: TextDecoration.none,
-      fontWeight: FontWeight.w900,
-      fontStyle: FontStyle.normal,
-      fontSize: 24,
-    ),
-
-    // actionsIconTheme
-    actionsIconTheme: IconThemeData(
-      color: Color(0xff4B0082),
+    actionsIconTheme: const IconThemeData(
+      color: widgetTxtColor,
       size: 26.0,
     ),
-
-    // iconTheme
-    iconTheme: IconThemeData(
-      color: Color(0xff4B0082),
+    iconTheme: const IconThemeData(
+      color: widgetTxtColor,
       size: 26.0,
     ),
   ),
 
   // Customized the DrawerThemeData
   drawerTheme: const DrawerThemeData(
-    backgroundColor: Color(0xff00FA9A),
-    shadowColor: Color(0xff4B0082),
+    backgroundColor: widgetBgColor,
+    shadowColor: widgetTxtColor,
   ),
 
   // CardTheme
   cardTheme: CardTheme(
-    shadowColor: const Color(0xff4B0082),
+    shadowColor: widgetTxtColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
       side: const BorderSide(
         style: BorderStyle.none,
-        color: Color(0xff4B0082),
+        color: widgetTxtColor,
         width: 1.0,
       ),
     ),
@@ -173,14 +258,14 @@ final ThemeData themeData = ThemeData(
   // Customized the DropdownMenuThemeData
   dropdownMenuTheme: const DropdownMenuThemeData(
     inputDecorationTheme: InputDecorationTheme(
-      iconColor: Color(0xff4B0082),
+      iconColor: widgetTxtColor,
       prefixStyle: TextStyle(
-        color: Color(0xff4B0082),
+        color: widgetTxtColor,
       ),
-      prefixIconColor: Color(0xff4B0082),
+      prefixIconColor: widgetTxtColor,
     ),
     textStyle: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
       fontStyle: FontStyle.normal,
@@ -188,27 +273,24 @@ final ThemeData themeData = ThemeData(
     menuStyle: MenuStyle(),
   ),
 
-  // Customized the ScrollbarThemeData
-  scrollbarTheme: const ScrollbarThemeData(),
-
   // Customized ListTileThemeData
   listTileTheme: const ListTileThemeData(
     // iconColor
-    iconColor: Color(0xff4B0082),
+    iconColor: widgetTxtColor,
 
     // textColor
-    textColor: Color(0xff4B0082),
+    textColor: widgetTxtColor,
 
     // titleTextStyle
     titleTextStyle: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 18,
       fontWeight: FontWeight.w500,
     ),
 
     // subtitleTextStyle
     subtitleTextStyle: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
@@ -217,14 +299,14 @@ final ThemeData themeData = ThemeData(
     shape: Border.symmetric(
       // vertical
       vertical: BorderSide(
-        color: Color(0xff4B0082),
+        color: widgetTxtColor,
         style: BorderStyle.none,
         width: 1.0,
       ),
 
       // horizontal
       horizontal: BorderSide(
-        color: Color(0xff4B0082),
+        color: widgetTxtColor,
         style: BorderStyle.none,
         width: 1.0,
       ),
@@ -240,7 +322,7 @@ final ThemeData themeData = ThemeData(
     border: OutlineInputBorder(
       borderSide: BorderSide(
         style: BorderStyle.solid,
-        color: Color(0xff4B0082),
+        color: widgetTxtColor,
         width: 2.0,
       ),
       gapPadding: 8.0,
@@ -250,13 +332,13 @@ final ThemeData themeData = ThemeData(
     // BorderSide
     outlineBorder: BorderSide(
       style: BorderStyle.solid,
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       width: 16.0,
     ),
 
     // TextStyle
     labelStyle: TextStyle(
-      color: Color(0xff4B0082),
+      color: widgetTxtColor,
       fontWeight: FontWeight.bold,
       fontSize: 16,
     ),
@@ -266,7 +348,7 @@ final ThemeData themeData = ThemeData(
   // Customized BottomNavigationBarThemeData
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     elevation: 10,
-    backgroundColor: Color(0xff4B0082),
+    backgroundColor: widgetTxtColor,
 
     // selectedItemColor
     selectedItemColor: Color(0xFF00FF7F),
@@ -288,11 +370,11 @@ final ThemeData themeData = ThemeData(
 
     // unselectedIconTheme
     unselectedIconTheme: IconThemeData(
-      color: Color(0xff00FA9A),
+      color: widgetBgColor,
     ),
 
     unselectedLabelStyle: TextStyle(
-      color: Color(0xff00FA9A),
+      color: widgetBgColor,
       fontWeight: FontWeight.w600,
     ),
   ),

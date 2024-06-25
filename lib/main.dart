@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:duma_suites/core/app_platform.dart';
-import 'package:duma_suites/utilities/themes/main_theme_data.dart';
+import 'package:duma_suites/utilities/themes/main_theme.dart';
 import 'package:duma_suites/widgets/app_drawer.dart';
 // Mobile version
 import 'package:duma_suites/platforms/Mobile/main/mobile_about_page.dart';
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Duma Suites',
       theme: themeData,
-      darkTheme: themeData,
       home: const MainPage(),
     );
   }

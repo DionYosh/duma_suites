@@ -85,9 +85,9 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Row(
-        children: [
-          ElevatedButton(
+        title: Row(
+          children: [
+            ElevatedButton(
               iconAlignment: IconAlignment.end,
               onPressed: () {},
               style: ElevatedButton.styleFrom(
@@ -115,9 +115,11 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
                     onPressed: _toggleFormVisibility,
                   ),
                 ],
-              )),
-        ],
-      )),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -127,10 +129,6 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Center(
                   child: Card(
-                    elevation: 40,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 36.0, vertical: 60.0),
@@ -253,7 +251,9 @@ class MobileBlogsPageState extends State<MobileBlogsPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: ListTile(
                         leading: CircleAvatar(
-                          backgroundImage: AssetImage(post['avatarUrl'] ?? ''),
+                          backgroundImage: AssetImage(
+                            post['avatarUrl'] ?? 'assets/images/default.png',
+                          ),
                         ),
                         title: Padding(
                           padding: const EdgeInsets.only(bottom: 4.0),
