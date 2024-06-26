@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart'; // Assuming a colors file with common colors
-
-const commonTextTheme = TextTheme(
-    // ... your text styles
-    );
-
-const commonButtonStyle = ButtonStyle(
-    // ... your button styles
-    );
+import 'app_colors.dart';
+import 'app_common_styles.dart';
 
 final ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,

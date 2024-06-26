@@ -125,6 +125,16 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.computer),
+            title: const Text(
+              'Settings',
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              navigateTo(context, 'Settings ');
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.logout),
             title: const Text(
               'Log Out',
